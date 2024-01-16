@@ -1,0 +1,51 @@
+[VARIABLES]
+
+SEARCH_RADIUS = 1200 
+
+[DATA_INPUT_TYPE]
+TYPE = FILE
+# for TYPE choose either FILE or DATABASE
+
+[DATA_OUTPUT_TYPE]
+TYPE = FILE
+# for TYPE choose either FILE or DATABASE
+
+[INPUT_DATA_FILE]
+
+PED_NETWORK = C:\Users\home\PycharmProjects\supply_demand\input_data\ped_network.shp
+KINDERGARTENS = C:\Users\home\PycharmProjects\supply_demand\input_data\kg_pn.geojson
+RESIDENTIAL_BUILDINGS = C:\Users\home\PycharmProjects\supply_demand\input_data\res_pn.geojson
+
+[OUTPUT_DATA_FILE]
+
+KG_SHORTEST = C:\Users\home\PycharmProjects\supply_demand\output_data\kg_shortest_1200.geojson
+KG_RESULTS = C:\Users\home\PycharmProjects\supply_demand\output_data\kg_results_1200.geojson
+
+[DATABASE_CREDENTIALS]
+
+HOST = 192.168.202.130
+DATABASE = supply_demand
+USER = XXX
+PASSWORD = XXX
+PORT = 5432
+
+[INPUT_DATA_DATABASE]
+
+SCHEMA_IN = input_data
+PED_NETWORK_TABLE = ped_network_test  
+KINDERGARTENS_TABLE = kg_pn_test
+RESIDENTIAL_BUILDINGS_TABLE = res_pn_test
+
+[OUTPUT_DATA_DATABASE]
+SCHEMA_OUT = output
+TABLE_OUT_SHORTEST = kg_shortest_test
+TABLE_OUT_RESULTS = kg_results_test
+
+
+
+
+
+
+
+
+
