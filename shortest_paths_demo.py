@@ -2,7 +2,7 @@ import pandas as pd
 import networkx as nx
 from shapely.geometry import Point, MultiPoint, LineString, MultiLineString
 import psycopg2
-from geoalchemy2 import Geometry, WKTElement
+# from geoalchemy2 import Geometry, WKTElement
 from sqlalchemy import *
 import geopandas as gpd
 from supply_demand import *

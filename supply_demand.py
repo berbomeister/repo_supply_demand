@@ -3,7 +3,7 @@ import pandas as pd
 import networkx as nx
 from shapely.geometry import Point, MultiPoint, LineString, MultiLineString
 import psycopg2
-from geoalchemy2 import Geometry, WKTElement
+# from geoalchemy2 import Geometry, WKTElement
 from sqlalchemy import *
 import configparser
 
@@ -25,7 +25,7 @@ def create_graph(network_gdf):
     network_gdf['start_pos'] = [x.coords[0] for x in network_gdf.geometry]
     network_gdf['end_pos'] = [x.coords[-1] for x in network_gdf.geometry]
 
-    s_points = network_gdf.start_pos.append(network_gdf.end_pos).reset_index(drop=True)
+    s_points = network_gdf.start_pos._append(network_gdf.end_pos).reset_index(drop=True)
     s_points = s_points.drop_duplicates()
 
     df_points = pd.DataFrame(s_points, columns=['start_pos'])
@@ -38,7 +38,7 @@ def create_graph(network_gdf):
 
     df_points.columns = ['pos', 'osmid']
     df_points[['x', 'y']] = df_points['pos'].apply(pd.Series)
-    df_node_xy = df_points.drop('pos', 1)
+    df_node_xy = df_points.drop('pos', axis = 1)
 
     graph = nx.Graph(crs=network_gdf.crs)
 
@@ -122,7 +122,7 @@ def shortest_path_algo(res_graph_nodes_id, kg_graphid_id, graph, search_radius, 
 
         s_node_point = Point(graph.nodes[s_node]['x'], graph.nodes[s_node]['y'])
         near_target_points = target_points.intersection(s_node_point.buffer(search_radius))
-        near_target_nodes = [(point.x, point.y) for point in near_target_points]
+        near_target_nodes = [(point.x, point.y) for point in near_target_points.geoms]
         near_target_nodes_graphid = [v for k, v in nodes_graph_graphid.items() if k in near_target_nodes]
 
         target_nodes_buffer_final = list(set(path.keys()).intersection(set(near_target_nodes_graphid)))

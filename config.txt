@@ -12,14 +12,14 @@ TYPE = FILE
 
 [INPUT_DATA_FILE]
 
-PED_NETWORK = C:\Users\home\PycharmProjects\supply_demand\input_data\ped_network.shp
-KINDERGARTENS = C:\Users\home\PycharmProjects\supply_demand\input_data\kg_pn.geojson
-RESIDENTIAL_BUILDINGS = C:\Users\home\PycharmProjects\supply_demand\input_data\res_pn.geojson
+PED_NETWORK = .\input_data\ped_network.shp
+KINDERGARTENS = .\input_data\kg_pn.geojson
+RESIDENTIAL_BUILDINGS = .\input_data\res_pn.geojson
 
 [OUTPUT_DATA_FILE]
 
-KG_SHORTEST = C:\Users\home\PycharmProjects\supply_demand\output_data\kg_shortest_1200.geojson
-KG_RESULTS = C:\Users\home\PycharmProjects\supply_demand\output_data\kg_results_1200.geojson
+KG_SHORTEST = .\output_data\kg_shortest_1200.geojson
+KG_RESULTS = .\output_data\kg_results_1200.geojson
 
 [DATABASE_CREDENTIALS]
 
